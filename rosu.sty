@@ -1,0 +1,347 @@
+%%
+%% rosu.sty
+%%
+%% (my usual abbreviations)
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Packages
+
+\usepackage{lscape}
+\usepackage{setspace}  
+\usepackage{graphics} 
+\usepackage{latexsym}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb} 
+
+%\ifx\pdftexversion\undefined
+%  \usepackage[dvips]{graphics}
+%\else
+%  \usepackage[pdftex]{graphics}
+%\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Theorem environments
+
+% Bold headings and Italic body text.
+\newtheorem{thm}{Theorem}%[section]    
+  %% Counter also includes section # and is reset for the next section
+%\newtheorem{thm}{Theorem}
+  %% Counter is only one # which is never reset
+\newtheorem{defn}{Definition}
+  %% Eliminate '[thm]' if you want to count Definitions separately
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{lemma}{Lemma}
+
+\theoremstyle{definition}  
+  %% \theoremstyle{Definition} is the default, with Italic body text.
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{conj}{Conjecture}
+\newtheorem{assumption}{Assumption}
+%
+\newtheorem{problem}{Problem}
+\newtheorem{case}{Case}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Various Environments
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bt}{\begin{tabular}}
+\newcommand{\et}{\end{tabular}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\beqa}{\begin{eqnarray}}
+\newcommand{\eeqa}{\end{eqnarray}}
+\newcommand{\beqas}{\begin{eqnarray*}}
+\newcommand{\eeqas}{\end{eqnarray*}}
+\newcommand{\bg}{\begin{gather}}
+\newcommand{\eg}{\end{gather}}
+\newcommand{\bgs}{\begin{gather*}}
+\newcommand{\egs}{\end{gather*}}
+\newcommand{\bs}{\begin{slide}}
+\newcommand{\es}{\end{slide}}
+
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bthm}{\begin{thm}}
+\newcommand{\ethm}{\end{thm}}
+\newcommand{\bdefn}{\begin{defn}}
+\newcommand{\edefn}{\end{defn}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bcor}{\begin{cor}}
+\newcommand{\ecor}{\end{cor}}
+\newcommand{\blemma}{\begin{lemma}}
+\newcommand{\elemma}{\end{lemma}}
+\newcommand{\bexample}{\begin{example}}
+\newcommand{\eexample}{\end{example}}
+\newcommand{\bconj}{\begin{conj}}
+\newcommand{\econj}{\end{conj}}
+\newcommand{\bremark}{\begin{remark}}
+\newcommand{\eremark}{\end{remark}}
+\newcommand{\bassumption}{\begin{assumption}}
+\newcommand{\eassumption}{\end{assumption}}
+\newcommand{\solution}{\medskip \noindent{\bf Solution: }}
+\newcommand{\answer}{\medskip \noindent{\bf Answer: }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Frequently Used Symbols
+
+\newcommand{\cA}{\mathcal{A}}      
+\newcommand{\cB}{\mathcal{B}}      
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\aa}{\alpha}
+\newcommand{\bb}{\beta}
+\renewcommand{\gg}{\gamma}
+\newcommand{\Gg}{\Gamma}
+\newcommand{\dd}{\delta}
+\newcommand{\Dd}{\Delta}
+\newcommand{\kk}{\kappa}
+\renewcommand{\ll}{\lambda}
+\newcommand{\Ll}{\Lambda}
+\newcommand{\oo}{\omega}
+\newcommand{\Oo}{\Omega}
+\renewcommand{\ss}{\sigma}
+\newcommand{\Ss}{\Sigma}
+\renewcommand{\tt}{\theta}
+\newcommand{\Tt}{\Theta}
+
+% These are defined because \aa,\ss,\gg,\ll were replaced above by something else.
+% I stole these definitions from the file 'lplain-m.tex' from the folder
+% 'texmf/tex/latex/mathtime/'
+\newcommand{\acirc}{\accent23a}
+\chardef\ssgerman="19
+\mathchardef\muchgreater="321D
+\mathchardef\muchsmaller="321C
+
+\newcommand{\bl}{\bigl}
+\newcommand{\br}{\bigr}
+\newcommand{\Bl}{\Bigl}
+\newcommand{\Br}{\Bigr}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\lra}{\longrightarrow}               % long left arrow
+\newcommand{\lla}{\longleftarrow}               % long left arrow
+\newcommand{\llra}[1]{\stackrel{#1}{\lra}}      % labeled long right arrow
+\newcommand{\llla}[1]{\stackrel{#1}{\lla}}      % labeled long left arrow
+
+\DeclareMathOperator{\argmax}{argmax}
+\DeclareMathOperator{\e}{e}
+\DeclareMathOperator{\E}{\mathsf{E}}
+\DeclareMathOperator{\V}{\mathsf{V}}
+\renewcommand{\P}{\operatorname{\mathsf{P}}}
+\DeclareMathOperator{\var}{\mathsf{var}}
+\DeclareMathOperator{\Var}{\mathsf{Var}}
+\DeclareMathOperator{\cov}{\mathsf{cov}}
+\DeclareMathOperator{\corr}{\mathsf{corr}}
+\DeclareMathOperator{\Cov}{\mathsf{Cov}}
+\DeclareMathOperator{\Corr}{\mathsf{Corr}}
+
+\renewcommand{\d}{\:\mathrm{d}}
+\newcommand{\ddfrac}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\delfrac}[2]{\frac{\partial #1}{\partial #2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Other useful commands
+
+\newcommand{\under}[1]{_{_{#1}}}
+\newcommand{\upper}[1]{^{^{#1}}}
+\newcommand{\sce}{\setcounter{enumi}}
+\newcommand{\scei}{\setcounter{enumii}}
+\newcommand{\m}{\item}
+\newcommand{\mt}{\vspace{-.2\baselineskip} \item}
+\newcommand{\mm}{\vspace{-.5\baselineskip} \item}
+\newcommand{\mmt}{\vspace{-.7\baselineskip} \item}
+\newcommand{\mmm}{\vspace{-1\baselineskip} \item}
+\newcommand{\mmmt}{\vspace{-1.2\baselineskip} \item}
+\newcommand{\mmmm}{\vspace{-1.5\baselineskip} \item}
+\newcommand{\mmmmt}{\vspace{-1.7\baselineskip} \item}
+\newcommand{\mmmmm}{\vspace{-2\baselineskip} \item}
+\newcommand{\black}{\textcolor[rgb]{0.00,0.00,0.00}}
+\newcommand{\blue}{\textcolor[rgb]{0.00,0.00,1.00}}
+\newcommand{\darkgreen}{\textcolor[rgb]{0.00,0.30,0.00}}
+\newcommand{\green}{\textcolor[rgb]{0.00,0.60,0.00}}
+\newcommand{\inv}{\textcolor[rgb]{1.00,1.00,1.00}}
+\newcommand{\mauve}{\textcolor[rgb]{0.7,0.00,0.25}}
+\newcommand{\pale}{\textcolor[rgb]{0.95,0.95,0.95}}
+\newcommand{\red}{\textcolor[rgb]{0.95,0.00,0.00}}
+\newcommand{\yellow}{\textcolor[rgb]{1.00,1.00,0.00}}
+\newcommand{\up}[1] {\vspace*{-#1\baselineskip}}
+\newcommand{\down}[1] {\vspace*{#1\baselineskip}}
+\newcommand{\qandq}{\quad\mbox{and}\quad}
+\newcommand{\qqandqq}{\qquad\mbox{and}\qquad}
+\newcommand{\qandqq}{\quad\mbox{and}\qquad}
+\newcommand{\qqandq}{\qquad\mbox{and}\quad}
+\newcommand{\qwithq}{\quad\mbox{with}\quad}
+\newcommand{\qqwithqq}{\qquad\mbox{with}\qquad}
+\newcommand{\qwithqq}{\quad\mbox{with}\qquad}
+\newcommand{\qqwithq}{\qquad\mbox{with}\quad}
+
+%
+\newcommand{\cond}{\;|\;}
+\newcommand{\condd}{\:|\:}
+\newcommand{\lcond}{\;\Bl|\;}
+\newcommand{\plus}{\;+\;}
+\newcommand{\minus}{\;-\;}
+\newcommand{\equal}{\;=\;}
+\newcommand{\greater}{\;>\;}
+\newcommand{\lesser}{\;<\;}
+\newcommand{\sgeq}{\;\geq\;}
+\newcommand{\sleq}{\;\leq\;}
+\newcommand{\ssim}{\;\sim\;}
+\newcommand{\sapprox}{\;\approx\;}
+\newcommand{\pequal}{\phantom{\equal}\;}
+%
+\newcommand{\overtt}[2]{\overset{\textrm{\small #1}}{\textrm{\small #2}}}
+\newcommand{\overttt}[3]{\overset{\overset{\textrm{\small #1}}{\textrm{\small #2}}}{\textrm{\small #3}}}
+
+%
+\newcommand{\Rosu}{Ro\c{s}u}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Binary trees
+
+\newcounter{bintreea}
+\newcounter{bintreelabelsa}
+\newcounter{bintreetwoa}
+\newcounter{bintreetwob}
+\newcounter{bintreetwoc}
+\newcounter{bintreetwod}
+\newcounter{bintreetwosepa}
+\newcounter{bintreetwosepb}
+\newcounter{bintreetwosepc}
+\newcounter{bintreetwosepd}
+
+\newcommand{\bintree}[4]{%
+\begin{picture}(65,65)(50,0)
+\unitlength2mm
+\setcounter{bintreea}{15}\addtocounter{bintreea}{-#4}
+\thicklines
+\put(20,0){\line(4,1){25}}
+\put(20,0){\line(4,-1){25}}
+\put(\thebintreea,0){\makebox(0,0){#1}}
+\put(46,5.5){#2}
+\put(46,-7.5){#3}
+\end{picture}
+\hspace*{6cm}
+\vspace*{1.5cm}
+}
+
+\newcommand{\bintreelabels}[6]{%
+\begin{picture}(65,65)(50,0)
+\unitlength2mm
+\setcounter{bintreelabelsa}{15}\addtocounter{bintreelabelsa}{-#6}
+\thicklines
+\put(20,0){\line(4,1){25}}
+\put(20,0){\line(4,-1){25}}
+\put(\thebintreelabelsa,0){\makebox(0,0){#1}}
+\put(33,6){\makebox(0,0){#4}}
+\put(33,-6){\makebox(0,0){#5}}
+\put(46,5.5){#2}
+\put(46,-7.5){#3}
+\end{picture}
+\hspace*{6cm}
+\vspace*{1.5cm}
+}
+
+\newcommand{\bintreetwo}[8]{%
+\begin{picture}(65,75)(50,10)
+\unitlength1.5mm
+\setcounter{bintreetwoa}{14}\addtocounter{bintreetwoa}{-#7}
+\setcounter{bintreetwob}{50}\addtocounter{bintreetwob}{#8}
+\setcounter{bintreetwoc}{55}\addtocounter{bintreetwoc}{#8}\addtocounter{bintreetwoc}{#8}
+\setcounter{bintreetwod}{81}\addtocounter{bintreetwod}{#8}\addtocounter{bintreetwod}{#8}
+\thicklines
+\put(20,0){\line(4,1){25}}
+\put(20,0){\line(4,-1){25}}
+\put(\thebintreetwoa,0){\makebox(0,0){#1}}
+\put(\thebintreetwob,6){\makebox(0,0){#2}}
+\put(\thebintreetwob,-6){\makebox(0,0){#3}}
+\put(\thebintreetwoc,6.5){\line(4,1){25}}
+\put(\thebintreetwoc,6.5){\line(4,-1){25}}
+\put(\thebintreetwoc,-6.5){\line(4,1){25}}
+\put(\thebintreetwoc,-6.5){\line(4,-1){25}}
+\put(\thebintreetwod,12){#4}
+\put(\thebintreetwod,-1){#5}
+\put(\thebintreetwod,-14){#6}
+\end{picture}
+\vspace*{2.5cm}
+}
+
+\newcommand{\bintreetwosep}[9]{%
+\begin{picture}(65,75)(50,10)
+\unitlength1.5mm
+\setcounter{bintreetwosepa}{14}\addtocounter{bintreetwosepa}{-#8}
+\setcounter{bintreetwosepb}{50}\addtocounter{bintreetwosepb}{#9}
+\setcounter{bintreetwosepc}{55}\addtocounter{bintreetwosepc}{#9}\addtocounter{bintreetwosepc}{#9}
+\setcounter{bintreetwosepd}{81}\addtocounter{bintreetwosepd}{#9}\addtocounter{bintreetwosepd}{#9}
+\thicklines
+\put(20,0){\line(4,1){25}}
+\put(20,0){\line(4,-1){25}}
+\put(\thebintreetwosepa,0){\makebox(0,0){#1}}
+\put(\thebintreetwosepb,6){\makebox(0,0){#2}}
+\put(\thebintreetwosepb,-6){\makebox(0,0){#3}}
+\put(\thebintreetwosepc,6.5){\line(4,1){25}}
+\put(\thebintreetwosepc,6.5){\line(6,-1){25}}
+\put(\thebintreetwosepc,-6.5){\line(6,1){25}}
+\put(\thebintreetwosepc,-6.5){\line(4,-1){25}}
+\put(\thebintreetwosepd,12){#4}
+\put(\thebintreetwosepd,1.5){#5}
+\put(\thebintreetwosepd,-3.5){#6}
+\put(\thebintreetwosepd,-14){#7}
+\end{picture}
+\vspace*{2.5cm}
+}
+
+\endinput
+
+
+%%
+%% End of file `rosu.sty'.
