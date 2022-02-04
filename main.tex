@@ -1,0 +1,103 @@
+\documentclass[12pt]{article} %%-*-latex-*-
+\usepackage[margin=1in]{geometry}%
+\usepackage[longnamesfirst]{natbib}
+\usepackage[pdftex]{graphicx}
+\usepackage[section]{placeins}
+\usepackage[toc,page]{appendix}
+\usepackage[multiple]{footmisc} % This is to put commas between footnotes
+\usepackage{caption,booktabs,rosu,jfe,float,multicol,textcomp,layout,tabularx,url,longtable,xcolor,titlesec,float,epigraph}
+% \usepackage[colorinlistoftodos]{todonotes}
+\usepackage[disable]{todonotes}
+\usepackage[position=bottom]{subfig}
+\newcommand\worry[1]{\textcolor{red}{#1}}
+\newcommand\addressed[1]{\textcolor{blue}{#1}}
+\newcommand\backlog[1]{}
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\onehalfspacing
+\makeatletter% force tables/figures to the top
+\setlength{\@fptop}{0pt} % force tables/figures to the top
+\makeatother% force tables/figures to the top
+\captionsetup{belowskip=0.2cm,labelfont=bf, textfont=bf,
+justification=centering, position=top, labelsep=newline}
+\captionsetup[sidewaystable]{belowskip=0.2cm,labelfont=bf,
+textfont=bf, justification=centering,position=top, labelsep=newline}
+\captionsetup[longtable]{belowskip=0.2cm,labelfont=bf,
+textfont=bf, justification=centering,position=top, labelsep=newline}
+
+
+\begin{document}
+	
+\author{
+	Leo Liu\footnote{University of New South Wales, Email: leo.liu@unsw.edu.au},
+}
+
+\title{Title\footnote{We thank...}}
+
+\maketitle
+\vspace{-0.5cm}
+
+\onehalfspacing
+
+\begin{abstract}
+
+	\vspace{0.5cm}
+	\noindent \emph{Keywords:} 	
+  \vspace{0.2cm}
+	\noindent \emph{JEL Classification}: G14, E32, O3, O4
+
+\end{abstract}
+
+\thispagestyle{empty}
+
+\clearpage
+ \input{intro}
+ \input{data}
+ \input{result}
+ \input{conclusion}
+ \input{tables}
+
+\newpage
+\FloatBarrier
+\singlespace
+\begin{multicols}{2}
+	\bibliographystyle{rfs}
+	{\footnotesize
+		\bibliography{bib}
+	}
+\end{multicols}
+
+\clearpage
+\FloatBarrier
+%\onehalfspacing
+
+\begin{appendix}
+\renewcommand{\thethm}{A\arabic{thm}}%
+\renewcommand{\theprop}{A\arabic{prop}}%
+\renewcommand{\thedefn}{A\arabic{defn}}%
+\renewcommand{\theequation}{A\arabic{equation}}%
+\renewcommand{\thecor}{A\arabic{cor}}%
+\renewcommand{\thelemma}{A\arabic{lemma}}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\thetable}{A\arabic{table}}
+% \renewcommand{\thesubsection}{\Alph{section}\arabic{section}}
+
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+	 \input{appendix}
+
+\renewcommand{\thethm}{B\arabic{thm}}%
+\renewcommand{\theprop}{B\arabic{prop}}%
+\renewcommand{\thedefn}{B\arabic{defn}}%
+\renewcommand{\theequation}{B\arabic{equation}}%
+\renewcommand{\thecor}{B\arabic{cor}}%
+\renewcommand{\thelemma}{B\arabic{lemma}}
+\renewcommand{\thefigure}{B\arabic{figure}}
+\renewcommand{\thetable}{B\arabic{table}}
+
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+	 \input{appendix_table}
+\end{appendix}
+\end{document}
